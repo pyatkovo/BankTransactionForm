@@ -1,0 +1,88 @@
+<section class="client-info" [formGroup]="clientInfo">
+  <div class="client-info-form">
+    <div class="client-input form-input">
+      <div class="client-input-title">Имя</div>
+      <input type="text" formControlName="firstName" [ngStyle]="{'border-color': clientInfo.get('firstName')?.invalid &&
+                 (clientInfo.get('firstName')?.dirty || clientInfo.get('firstName')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('firstName')?.invalid &&
+                                     (clientInfo.get('firstName')?.dirty || clientInfo.get('firstName')?.touched)">
+        <div *ngIf="clientInfo.get('firstName')?.errors?.['required']">Введите Имя</div>
+        <div *ngIf="clientInfo.get('firstName')?.errors?.['onlyLetters']">Имя должно содержать буквы</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Фамилия</div>
+      <input type="text" formControlName="lastName" [ngStyle]="{'border-color': clientInfo.get('lastName')?.invalid &&
+                 (clientInfo.get('lastName')?.dirty || clientInfo.get('lastName')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('lastName')?.invalid &&
+                                     (clientInfo.get('lastName')?.dirty || clientInfo.get('lastName')?.touched)">
+        <div *ngIf="clientInfo.get('lastName')?.errors?.['required']">Введите Фамилию</div>
+        <div *ngIf="clientInfo.get('lastName')?.errors?.['onlyLetters']">Фамилия должна содержать буквы</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Отчество</div>
+      <input type="text" formControlName="middleName" [ngStyle]="{'border-color': clientInfo.get('middleName')?.invalid &&
+                 (clientInfo.get('middleName')?.dirty || clientInfo.get('middleName')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('middleName')?.invalid &&
+                                     (clientInfo.get('middleName')?.dirty || clientInfo.get('middleName')?.touched)">
+        <div *ngIf="clientInfo.get('middleName')?.errors?.['required']">Введите Отчество</div>
+        <div *ngIf="clientInfo.get('middleName')?.errors?.['onlyLetters']">Отчество должно содержать буквы</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Пол</div>
+      <select formControlName="gender" [ngStyle]="{'border-color': clientInfo.get('gender')?.invalid &&
+                 (clientInfo.get('gender')?.dirty || clientInfo.get('gender')?.touched) ? 'red' : '' }">
+        <option value="male" selected>Мужской</option>
+        <option value="female">Женский</option>
+      </select>
+      <div class="error-message" *ngIf="clientInfo.get('gender')?.invalid &&
+                                     (clientInfo.get('gender')?.dirty || clientInfo.get('gender')?.touched)">
+        <div *ngIf="clientInfo.get('gender')?.errors?.['required']">Выберите пол</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Дата рождения</div>
+      <input type="date" formControlName="birthDate" [ngStyle]="{'border-color': clientInfo.get('birthDate')?.invalid &&
+                 (clientInfo.get('birthDate')?.dirty || clientInfo.get('birthDate')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('birthDate')?.invalid &&
+                                     (clientInfo.get('birthDate')?.dirty || clientInfo.get('birthDate')?.touched)">
+        <div *ngIf="clientInfo.get('birthDate')?.errors?.['required']">Введите дату рождения</div>
+        <div *ngIf="clientInfo.get('birthDate')?.errors?.['underage']">Вам должно быть не менее 18 лет</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Email</div>
+      <input type="email" formControlName="email" [ngStyle]="{'border-color': clientInfo.get('email')?.invalid &&
+                 (clientInfo.get('email')?.dirty || clientInfo.get('email')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('email')?.invalid &&
+                                     (clientInfo.get('email')?.dirty || clientInfo.get('email')?.touched)">
+        <div *ngIf="clientInfo.get('email')?.errors?.['required']">Введите email</div>
+        <div *ngIf="clientInfo.get('email')?.errors?.['email']">Некорректный формат email</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Номер телефона</div>
+      <input type="text" formControlName="phone"  placeholder="+7(123)456-78-90"
+             [ngStyle]="{'border-color': clientInfo.get('phone')?.invalid &&
+                 (clientInfo.get('phone')?.dirty || clientInfo.get('phone')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="clientInfo.get('phone')?.invalid &&
+                                     (clientInfo.get('phone')?.dirty || clientInfo.get('phone')?.touched)">
+        <div *ngIf="clientInfo.get('phone')?.errors?.['required']">Введите номер телефона</div>
+        <div *ngIf="clientInfo.get('phone')?.errors?.['pattern']">Проверьте корректность номера +7(123)456-78-90</div>
+      </div>
+    </div>
+    <div class="client-input form-input">
+      <div class="client-input-title">Серия и номер паспорта</div>
+      <input type="text" formControlName="passport" [ngStyle]="{'border-color': clientInfo.get('passport')?.invalid &&
+                 (clientInfo.get('passport')?.dirty || clientInfo.get('passport')?.touched) ? 'red' : '' }" placeholder="1234 567890">
+      <div class="error-message" *ngIf="clientInfo.get('passport')?.invalid &&
+                                     (clientInfo.get('passport')?.dirty || clientInfo.get('phone')?.touched)">
+        <div *ngIf="clientInfo.get('passport')?.errors?.['required']">Введите номер паспорта</div>
+        <div *ngIf="clientInfo.get('passport')?.errors?.['pattern']">Некорректный номер паспорта</div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,0 +1,52 @@
+<section class="transaction-info" [formGroup]="transactionInfo">
+  <div class="transaction-info-form">
+    <div class="transaction-info-input form-input">
+      <div class="transaction-info-input-title">Тип транзакции</div>
+      <select formControlName="transactionType" [ngStyle]="{'border-color': transactionInfo.get('transactionType')?.invalid &&
+                 (transactionInfo.get('transactionType')?.dirty || transactionInfo.get('transactionType')?.touched) ? 'red' : '' }">
+        <option value="transfer" selected>Перевод</option>
+        <option value="payment">Оплата</option>
+        <option value="replenishment">Пополнение</option>
+      </select>
+
+      <div class="error-message" *ngIf="transactionInfo.get('transactionType')?.invalid &&
+                                     (transactionInfo.get('transactionType')?.dirty || transactionInfo.get('transactionType')?.touched)">
+        <div *ngIf="transactionInfo.get('transactionType')?.errors?.['required']">Выберите тип транзакции</div>
+      </div>
+    </div>
+    <div class="transaction-info-input amount-currency form-input">
+      <div>
+      <div class="transaction-info-input-title">Сумма транзакции</div>
+      <input type="number" formControlName="amount" [ngStyle]="{'border-color': transactionInfo.get('amount')?.invalid &&
+                 (transactionInfo.get('amount')?.dirty || transactionInfo.get('amount')?.touched) ? 'red' : '' }">
+        <div class="error-message" *ngIf="transactionInfo.get('amount')?.invalid &&
+                                     (transactionInfo.get('amount')?.dirty || transactionInfo.get('amount')?.touched)">
+          <div *ngIf="transactionInfo.get('amount')?.errors?.['required']">Укажите сумму транзакции</div>
+          <div *ngIf="transactionInfo.get('amount')?.errors?.['min']">Число должно быть > 0</div>
+        </div>
+      </div>
+      <div>
+      <div class="transaction-info-input-title">Валюта</div>
+      <select formControlName="currency" [ngStyle]="{'border-color': transactionInfo.get('currency')?.invalid &&
+                 (transactionInfo.get('currency')?.dirty || transactionInfo.get('currency')?.touched) ? 'red' : '' }">
+        <option value="RUB" selected>RUB</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+        <div class="error-message" *ngIf="transactionInfo.get('currency')?.invalid &&
+                                     (transactionInfo.get('currency')?.dirty || transactionInfo.get('currency')?.touched)">
+          <div *ngIf="transactionInfo.get('currency')?.errors?.['required']">Выберите валюту</div>
+        </div>
+      </div>
+    </div>
+    <div class="transaction-info-input form-input">
+      <div class="transaction-info-input-title">Комментарий</div>
+      <textarea type="text" formControlName="comment"></textarea>
+      <div class="error-message" *ngIf="transactionInfo.get('comment')?.invalid &&
+                                     (transactionInfo.get('comment')?.dirty || transactionInfo.get('comment')?.touched)">
+        <div *ngIf="transactionInfo.get('comment')?.errors?.['maxlength']">Максимальная длина 200 символов</div>
+      </div>
+    </div>
+  </div>
+</section>
+

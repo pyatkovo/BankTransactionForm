@@ -1,0 +1,45 @@
+<section class="bank-details" [formGroup]="bankDetails">
+  <div class="bank-details-form">
+    <div class="bank-details-input form-input">
+      <div class="bank-details-input-title">Номер счета</div>
+      <input type="text" formControlName="accountNumber" [ngStyle]="{'border-color': bankDetails.get('accountNumber')?.invalid &&
+                 (bankDetails.get('accountNumber')?.dirty || bankDetails.get('accountNumber')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="bankDetails.get('accountNumber')?.invalid &&
+                                     (bankDetails.get('accountNumber')?.dirty || bankDetails.get('accountNumber')?.touched)">
+        <div *ngIf="bankDetails.get('accountNumber')?.errors?.['required']">Введите номер счета</div>
+        <div *ngIf="bankDetails.get('accountNumber')?.errors?.['pattern']">Счет должен содержать 20 цифр</div>
+      </div>
+    </div>
+    <div class="bank-details-input form-input">
+      <div class="bank-details-input-title">БИК Банка</div>
+      <input type="text" formControlName="bic" [ngStyle]="{'border-color': bankDetails.get('bic')?.invalid &&
+                 (bankDetails.get('bic')?.dirty || bankDetails.get('bic')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="bankDetails.get('bic')?.invalid &&
+                                     (bankDetails.get('bic')?.dirty || bankDetails.get('bic')?.touched)">
+        <div *ngIf="bankDetails.get('bic')?.errors?.['required']">Введите БИК банка</div>
+        <div *ngIf="bankDetails.get('bic')?.errors?.['pattern']">Поле должно содержать 9 цифр</div>
+      </div>
+    </div>
+    <div class="bank-details-input form-input">
+      <div class="bank-details-input-title">Наименование банка</div>
+      <input type="text" formControlName="bankName" [ngStyle]="{'border-color': bankDetails.get('bankName')?.invalid &&
+                 (bankDetails.get('bankName')?.dirty || bankDetails.get('bankName')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="bankDetails.get('bankName')?.invalid &&
+                                     (bankDetails.get('bankName')?.dirty || bankDetails.get('bankName')?.touched)">
+        <div *ngIf="bankDetails.get('bankName')?.errors?.['required']">Введите наименование банка</div>
+        <div *ngIf="bankDetails.get('bankName')?.errors?.['minlength']">Поле должно содержать минимум 3 символа</div>
+      </div>
+    </div>
+    <div class="bank-details-input form-input">
+      <div class="bank-details-input-title">Корреспондентский счет</div>
+      <input type="text" formControlName="correspondentAccount" [ngStyle]="{'border-color': bankDetails.get('correspondentAccount')?.invalid &&
+                 (bankDetails.get('correspondentAccount')?.dirty || bankDetails.get('correspondentAccount')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="bankDetails.get('correspondentAccount')?.invalid &&
+                                     (bankDetails.get('correspondentAccount')?.dirty || bankDetails.get('correspondentAccount')?.touched)">
+        <div *ngIf="bankDetails.get('correspondentAccount')?.errors?.['required']">Введите корреспондентский счет</div>
+        <div *ngIf="bankDetails.get('correspondentAccount')?.errors?.['pattern']">Счет должен состоять из 20 цифр</div>
+      </div>
+    </div>
+  </div>
+</section>
+

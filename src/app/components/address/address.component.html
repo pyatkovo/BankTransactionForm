@@ -1,0 +1,75 @@
+<section class="address" [formGroup]="address">
+  <div class="address-form">
+    <div class="address-input form-input">
+      <div class="address-input-title">Страна</div>
+      <select formControlName="country" [ngStyle]="{'border-color': address.get('country')?.invalid &&
+                 (address.get('country')?.dirty || address.get('country')?.touched) ? 'red' : '' }">
+        <option *ngFor="let country of countries" [value]="country.alpha3">{{ country.name }}</option>
+      </select>
+      <div class="error-message" *ngIf="address.get('country')?.invalid &&
+                                     (address.get('country')?.dirty || address.get('country')?.touched)">
+        <div *ngIf="address.get('country')?.errors?.['required']">Выберите страну</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Регион</div>
+      <input type="text" formControlName="region" [ngStyle]="{'border-color': address.get('region')?.invalid &&
+                 (address.get('region')?.dirty || address.get('region')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('region')?.invalid &&
+                                     (address.get('region')?.dirty || address.get('region')?.touched)">
+        <div *ngIf="address.get('region')?.errors?.['required']">Введите Регион</div>
+        <div *ngIf="address.get('region')?.errors?.['onlyLetters']">Поле должно содержать только буквы</div>
+        <div *ngIf="address.get('region')?.errors?.['minlength']">Поле должно иметь минимум 3 символа</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Город</div>
+      <input type="text" formControlName="city" [ngStyle]="{'border-color': address.get('city')?.invalid &&
+                 (address.get('city')?.dirty || address.get('city')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('city')?.invalid &&
+                                     (address.get('city')?.dirty || address.get('city')?.touched)">
+        <div *ngIf="address.get('city')?.errors?.['required']">Введите Город</div>
+        <div *ngIf="address.get('city')?.errors?.['minlength']">Поле должно иметь минимум 3 символа</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Улица</div>
+      <input type="text" formControlName="street" [ngStyle]="{'border-color': address.get('street')?.invalid &&
+                 (address.get('street')?.dirty || address.get('street')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('street')?.invalid &&
+                                     (address.get('street')?.dirty || address.get('street')?.touched)">
+        <div *ngIf="address.get('street')?.errors?.['required']">Введите Улицу</div>
+        <div *ngIf="address.get('street')?.errors?.['minlength']">Поле должно иметь минимум 3 символа</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Дом</div>
+      <input type="text" formControlName="house" [ngStyle]="{'border-color': address.get('house')?.invalid &&
+                 (address.get('house')?.dirty || address.get('house')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('house')?.invalid &&
+                                     (address.get('house')?.dirty || address.get('house')?.touched)">
+        <div *ngIf="address.get('house')?.errors?.['required']">Введите Дом</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Квартира</div>
+      <input type="text" formControlName="apartment" [ngStyle]="{'border-color': address.get('apartment')?.invalid &&
+                 (address.get('apartment')?.dirty || address.get('apartment')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('apartment')?.invalid &&
+                                     (address.get('apartment')?.dirty || address.get('apartment')?.touched)">
+        <div *ngIf="address.get('apartment')?.errors?.['pattern']">Поле должно содержать только цифры</div>
+      </div>
+    </div>
+    <div class="address-input form-input">
+      <div class="address-input-title">Индекс</div>
+      <input type="text" formControlName="postalCode" [ngStyle]="{'border-color': address.get('postalCode')?.invalid &&
+                 (address.get('postalCode')?.dirty || address.get('postalCode')?.touched) ? 'red' : '' }">
+      <div class="error-message" *ngIf="address.get('postalCode')?.invalid &&
+                                     (address.get('postalCode')?.dirty || address.get('postalCode')?.touched)">
+        <div *ngIf="address.get('postalCode')?.errors?.['required']">Введите Индекс</div>
+        <div *ngIf="address.get('postalCode')?.errors?.['pattern']">Поле должно состоять из шести цифр</div>
+      </div>
+    </div>
+  </div>
+</section>
+

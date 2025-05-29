@@ -1,0 +1,54 @@
+<section class="documents">
+  <div>
+    <div *ngFor="let doc of documentsFormGroups; let i = index"
+         class="document-form" [formGroup]="doc">
+      <div class="document-input form-input">
+        <div class="document-input-title">Тип документа</div>
+        <select formControlName="documentType" [ngStyle]="{'border-color': doc.get('documentType')?.invalid &&
+                 (doc.get('documentType')?.dirty || doc.get('documentType')?.touched) ? 'red' : '' }">
+          <option value="passport" selected>Паспорт</option>
+          <option value="snils">СНИЛС</option>
+          <option value="inn">ИНН</option>
+        </select>
+        <div class="error-message" *ngIf="doc.get('documentType')?.invalid &&
+                                     (doc.get('documentType')?.dirty || doc.get('documentType')?.touched)">
+          <div *ngIf="doc.get('documentType')?.errors?.['required']">Выберите тип документа</div>
+        </div>
+      </div>
+
+      <div class="document-input form-input">
+        <div class="document-input-title">Номер документа</div>
+        <input type="text" formControlName="documentNumber" [ngStyle]="{'border-color': doc.get('documentNumber')?.invalid &&
+                 (doc.get('documentNumber')?.dirty || doc.get('documentNumber')?.touched) ? 'red' : '' }">
+        <div class="error-message" *ngIf="doc.get('documentNumber')?.invalid &&
+                                     (doc.get('documentNumber')?.dirty || doc.get('documentNumber')?.touched)">
+          <div *ngIf="doc.get('documentNumber')?.errors?.['required']">Укажите номер документа</div>
+          <div *ngIf="doc.get('documentNumber')?.errors?.['pattern']">Поле должно содержать только цифры</div>
+          <div *ngIf="doc.get('documentNumber')?.hasError('invalidSnils')">СНИЛС должен содержать 11 цифр</div>
+          <div *ngIf="doc.get('documentNumber')?.hasError('invalidInn')">ИНН должен содержать 12 цифр</div>
+          <div *ngIf="doc.get('documentNumber')?.hasError('invalidPassport')">Паспорт должен содержать 9 цифр</div>
+        </div>
+
+      </div>
+
+      <div class="document-input form-input">
+        <div class="document-input-title">Дата выдачи</div>
+        <input type="date" formControlName="issueDate" [ngStyle]="{'border-color': doc.get('issueDate')?.invalid &&
+                 (doc.get('issueDate')?.dirty || doc.get('issueDate')?.touched) ? 'red' : '' }">
+
+        <div class="error-message" *ngIf="doc.get('issueDate')?.invalid &&
+                                     (doc.get('issueDate')?.dirty || doc.get('issueDate')?.touched)">
+          <div *ngIf="doc.get('issueDate')?.errors?.['required']">Укажите дату выдачи документа</div>
+        </div>
+      </div>
+      <div class="document-actions">
+        <button type="button" class="button delete" *ngIf="documentsFormGroups.length !== 1" (click)="removeDocument(i)">Удалить</button>
+        <button type="button" class="button add" (click)="addDocument()">Добавить документ</button>
+      </div>
+    </div>
+    <button *ngIf="documentsFormGroups.length < 1" type="button" class="button add" (click)="addDocument()">Добавить
+      документ
+    </button>
+  </div>
+
+</section>
