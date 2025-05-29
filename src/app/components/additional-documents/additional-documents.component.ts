@@ -24,7 +24,7 @@ export class AdditionalDocumentsComponent implements OnInit {
     const docGroup = this.fb.group({
       documentType: ['passport', Validators.required],
       documentNumber: ['', [Validators.required, CustomValidators.documentNumberLength, Validators.pattern(/^\d+$/)]],
-      issueDate: [''],
+      issueDate: ['', Validators.required],
     });
     this.documents.push(docGroup);
   }
