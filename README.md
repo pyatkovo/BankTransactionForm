@@ -1,6 +1,7 @@
 # TestProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+Приложения для создания банковской транзакции. В форме используются кастомные валидаторы. Форма сделана с помощью ReactiveForms
 
 ## Development server
 
