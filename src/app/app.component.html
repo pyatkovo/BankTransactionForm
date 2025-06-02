@@ -6,7 +6,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Данные клиента</mat-panel-title>
         <div class="error-field" *ngIf="!clientInfoForm.invalid">
-          <img src="/assets/images/correct.png">
+          <img src="./assets/images/correct.png">
         </div>
       </mat-expansion-panel-header>
       <app-client-info [clientInfo]="clientInfoForm"></app-client-info>
@@ -16,7 +16,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Адрес регистрации</mat-panel-title>
         <div class="error-field" *ngIf="!addressForm.invalid">
-          <img src="/assets/images/correct.png">
+          <img src="./assets/images/correct.png">
         </div>
       </mat-expansion-panel-header>
       <app-address [address]="addressForm"></app-address>
@@ -26,7 +26,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Банковские реквизиты</mat-panel-title>
         <div class="error-field" *ngIf="!bankDetails.invalid">
-          <img src="/assets/images/correct.png">
+          <img src="./assets/images/correct.png">
         </div>
       </mat-expansion-panel-header>
       <app-bank-details [bankDetails]="bankDetails"></app-bank-details>
@@ -36,7 +36,7 @@
       <mat-expansion-panel-header>
         <mat-panel-title>Информация о транзакции</mat-panel-title>
         <div class="error-field" *ngIf="!transactionInfo.invalid">
-          <img src="/assets/images/correct.png">
+          <img src="./assets/images/correct.png">
         </div>
       </mat-expansion-panel-header>
       <app-transaction-info [transactionInfo]="transactionInfo" ></app-transaction-info>
@@ -45,6 +45,9 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>Дополнительные документы</mat-panel-title>
+        <div class="error-field" *ngIf="!documents.invalid">
+          <img src="./assets/images/correct.png">
+        </div>
       </mat-expansion-panel-header>
       <app-additional-documents [documents]="documents"></app-additional-documents>
     </mat-expansion-panel>
