@@ -35,7 +35,7 @@ input[type="text"], [type="email"], [type="date"], [type="number"]{
 }
 
 input[type="date"] {
-  font-family: inherit;
+  font-family: inherit, sans-serif;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
@@ -46,7 +46,7 @@ select {
   outline: none;
   padding: 8px 34px 8px 12px;
   width: auto;
-  font-family: inherit;
+  font-family: inherit, sans-serif;
   border-radius: 5px;
   border: 1px solid #ccc;
   appearance: none;

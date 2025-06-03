@@ -1,7 +1,7 @@
 h1 {
 
   text-align: center;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
   color: white;
   font-weight: 600;
@@ -59,7 +59,7 @@ form {
 
 mat-panel-title {
   font-size: clamp(12px, 1.5vw, 1rem) !important;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   letter-spacing: 1px;
   font-weight: bold;
   text-transform: uppercase;
